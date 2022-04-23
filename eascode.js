@@ -1,7 +1,12 @@
-var input = 10;
+var input = 100;
 
-var sizing = (400/input);
+var availableSpace = 400 - input
 
+var sizing = (availableSpace/input);
+
+
+var counter = 1;
+var turtle = 0;
 
 const container = document.getElementById('gridArea');
 
@@ -21,13 +26,17 @@ function lineBreaker () {
   container.appendChild(breaker);
 }
 
-for (let i = 1; i <= (input * input); i++) {
-  if (i % input !== 0) {
-    makeSquare();
-  } else {
+for (let i = 1; i <= (input * input + (input - 1)); i++) {
+  if (i == input * counter + 1 + turtle) {
     lineBreaker();
+    counter ++;
+    turtle++;
+    console.log(counter);
+  } else {
+    makeSquare()
   }
 }
+
 
 function drawn () {
   this.classList.add('drawn');
