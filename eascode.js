@@ -17,7 +17,10 @@ function lineBreaker () {
 }
 
 function drawn () {
-  this.classList.add('drawn');
+  red = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  green = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  blue = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+  this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
 }
 
 function createGrid () {
@@ -45,7 +48,7 @@ function createGrid () {
 
 function reset () {
   squares = document.querySelectorAll('div');
-  squares.forEach(square => square.classList.remove('drawn'));
+  squares.forEach(square => square.style.backgroundColor = "white");
 }
 
 function reload () {
