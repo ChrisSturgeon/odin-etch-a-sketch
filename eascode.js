@@ -44,8 +44,12 @@ function createGrid () {
 }
 
 function reset () {
-  window.location.reload();
+  squares = document.querySelectorAll('div');
+  squares.forEach(square => square.classList.remove('drawn'));
+}
 
+function reload () {
+  window.location.reload();
 }
 
 createGrid();
