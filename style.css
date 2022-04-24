@@ -1,6 +1,10 @@
 body {
   background-color: red;
+  font-family: 'Press Start 2P', cursive;
+
 }
+
+
 
 .container {
   display:flex;
