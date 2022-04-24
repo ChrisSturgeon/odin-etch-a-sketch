@@ -18,10 +18,18 @@ function lineBreaker () {
 }
 
 function drawn () {
-  red = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-  green = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-  blue = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-  this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
+
+  if (this.style.backgroundColor == "white") {
+    red = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    green = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    blue = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
+  } else {
+    red -= (red * 0.1);
+    green -= (green * 0.1);
+    blue -= (blue * 0.1);
+    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
+  }
 }
 
 function createGrid () {

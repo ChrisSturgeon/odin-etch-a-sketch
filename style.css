@@ -8,6 +8,12 @@ body {
   justify-content: center;
 }
 
+.buttonArea {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .gridSquare {
   border: 1px solid black;
   font-size: 0px;
