@@ -1,6 +1,7 @@
 .container {
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gridSquare {
@@ -9,7 +10,7 @@
 }
 
 .drawn {
-  background-color: rgb(207, 206, 206);
+  background-color: rgb(163, 163, 163);
 }
 
 .lineBreaker {
