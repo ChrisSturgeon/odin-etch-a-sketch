@@ -4,8 +4,9 @@ const displayArea = 500;
 function makeSquare (size) {
   const square = document.createElement('div');
   square.className = 'gridSquare';
-  square.style.padding = `${size}px`
-  square.innerHTML = "&nbsp"
+  square.style.backgroundColor = 'white';
+  square.style.padding = `${size}px`;
+  square.innerHTML = "&nbsp";
   square.addEventListener('mouseenter', drawn);
   container.appendChild(square);
 }
@@ -47,7 +48,7 @@ function createGrid () {
 }
 
 function reset () {
-  squares = document.querySelectorAll('div');
+  squares = document.querySelectorAll('.gridSquare');
   squares.forEach(square => square.style.backgroundColor = "white");
 }
 
