@@ -1,5 +1,9 @@
 const container = document.getElementById('gridArea');
-const displayArea = 500;
+const displayArea = (window.innerHeight/2) - 75;
+// var dials = document.getElementById('dials');
+// var dialSpacing = displayArea + 600;
+// dials.style.width = `${dialSpacing}px`;
+
 
 function makeSquare (size) {
   const square = document.createElement('div');
@@ -33,7 +37,6 @@ function drawn () {
 }
 
 function createGrid () {
-
   var input = prompt("Please enter number of squares (max 100)");
   var availableSpace = displayArea - input;
   var squareSize = (availableSpace/input);
