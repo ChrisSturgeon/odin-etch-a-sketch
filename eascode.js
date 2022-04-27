@@ -1,10 +1,8 @@
+// Set grid area size from user's window
 const container = document.getElementById('gridArea');
 const displayArea = (window.innerHeight/2) - 75;
-// var dials = document.getElementById('dials');
-// var dialSpacing = displayArea + 600;
-// dials.style.width = `${dialSpacing}px`;
 
-
+// Function to generate a single grid-square
 function makeSquare (size) {
   const square = document.createElement('div');
   square.className = 'gridSquare';
@@ -15,36 +13,23 @@ function makeSquare (size) {
   container.appendChild(square);
 }
 
+// Function to generate empty square to wrap the grid onto new line
 function lineBreaker () {
   const breaker = document.createElement('div');
   breaker.className = 'lineBreaker';
   container.appendChild(breaker);
 }
 
-function drawn () {
-
-  if (this.style.backgroundColor == "white") {
-    red = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-    green = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-    blue = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
-    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
-  } else {
-    red -= (red * 0.1);
-    green -= (green * 0.1);
-    blue -= (blue * 0.1);
-    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
-  }
-}
-
+// Request user to set number of cells and create grid 
 function createGrid () {
-  var input = prompt("Please enter number of squares (max 100)");
+  var input = prompt("Please enter the number of squares per side (max 100)");
   var availableSpace = displayArea - input;
   var squareSize = (availableSpace/input);
   var counterOne = 1;
   var counterTwo = 0;
 
   if (input >100) {
-    var input = prompt("Number greater than 100! Please enter number of squares (max 100)");
+    var input = prompt("ERROR: The requested number was greater than 100! Please enter the number of squares per side (max 100)");
   }
 
   for (let i = 1; i <= (input * input + (input - 1)); i++) {
@@ -58,11 +43,29 @@ function createGrid () {
   }
 }
 
+// Colour in cells with random RGB value on mouseover
+function drawn () {
+  if (this.style.backgroundColor == "white") {
+    red = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    green = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    blue = Math.floor(Math.random() * (255 - 0 + 1)) + 0;
+    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
+  } else {
+    // Increase blackness on sucessive passes 
+    red -= (red * 0.1);
+    green -= (green * 0.1);
+    blue -= (blue * 0.1);
+    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
+  }
+}
+
+// Reset 'drawn on' grid cells back to zero
 function reset () {
   squares = document.querySelectorAll('.gridSquare');
   squares.forEach(square => square.style.backgroundColor = "white");
 }
 
+// Refresh page to prompt user for new grid size input
 function reload () {
   window.location.reload();
 }
